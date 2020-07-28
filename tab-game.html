@@ -92,6 +92,9 @@
         var bgm = document.querySelector('#game-background-music')
         var about_btn = document.querySelector('#btn-about')
         var about_view = document.querySelector('#about')
+        var about_x = document.querySelector('#about-x')
+        var box_x = (document.body.clientWidth / 8);
+        var box_y = (document.body.clientHeight / 4);
                         // var area
 
                         // full-screen btn
@@ -115,25 +118,37 @@
         start_btn.addEventListener('mousedown', function(){
             start_view.classList.add('x');
             game_view.classList.remove('x');
-            bgm.play();
+            // bgm.play();
         });
                         // start btn
                         // about btn
-        
         about_btn.addEventListener('mousedown', function(){
             about_view.classList.remove('x');
             start_view.classList.add('x');
         });
                         // about btn
                         // back to start btn
-        var about_x = document.querySelector('#about-x')
         about_x.addEventListener('mousedown', function(){ 
             about_view.classList.add('x');
             start_view.classList.remove('x');
         });
+                        // back to start btn 
+        document.addEventListener('mousedown',function(event){
+            var number =  Math.floor(event.pageX/ box_x + 1 ) + Math.floor(event.pageY / box_y)*8;
+            console.log(String(number));
+            document.getElementById(String(number)).play();
+            document.getElementById('box'+String(number)).classList.add('box-active'); 
+        }); 
                         // back to start btn
-    
                         
+                    // window resize problem
+        window.addEventListener('resize',function(event){
+            box_x = (document.body.clientWidth / 8);
+            box_y = (document.body.clientHeight / 4);
+        }); 
+                    // window resize problem
+
+        
     </script>
 </body>
 </html>
