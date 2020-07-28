@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="game.css">
     <style>
         .x{
-            display: none;
+            display: none!important;
         }
     </style>
 </head>
 <body>
     <div id="btn-back">＜</div>
     <div id="btn-full-screen">口</div>
-    <!-- <div id="start">
+    <div id="start">
         <div class="wrap">
             <h1>Fake Mikutap</h1>
             <div><span id="btn-start">START</span></div>
@@ -32,9 +32,9 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="about">
+    <div class="about x">
         <div class="about-background">
             <div class="about-text">
                 <div id="about-x">X</div>
@@ -44,9 +44,9 @@
                 <p>( Wonderful website! )</p>
             </div>
         </div>
-    </div> -->
+    </div>
 
-    <div class="game-table">
+    <div class="game-table x">
         <audio id="game-background-music" src="../tag-game mp3/bc.mp3"  loop></audio>
         <div class="box" id="box1">  <audio controls src="../tag-game mp3/1.mp3" id="1"  ></audio></div>
         <div class="box" id="box2">  <audio controls src="../tag-game mp3/2.mp3" id="2"  ></audio></div>
@@ -95,9 +95,14 @@
                         //  back btn
     document.getElementById('btn-back').addEventListener('mousedown', function(){
          document.getElementById('game-background-music').pause();
+         document.getElementById('start').classList.remove('x');
     });
                         //  back btn
-    
+    document.getElementById('btn-start').addEventListener('mousedown', function(){
+         document.getElementById('start').classList.add('x');
+    });
+
+                        
     
     
     </script>
