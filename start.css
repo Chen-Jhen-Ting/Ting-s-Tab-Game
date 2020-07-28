@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#start{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(156,224,224);
+    display: flex;
+}
+.wrap{
+    width: 50%;
+    margin: auto;  
+    text-align: center;
+    color: white; 
+}
+.wrap h1{
+    font-size: 28px;
+    margin: 15px;
+}
+.wrap div {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+#btn-start, #btn-about {
+    display: inline;
+    cursor: pointer;
+    border-bottom: white 2px dashed;
+}
+.icon {
+    width: 5%;
+    margin: 5px 2px 0px 2px;
+    position: relative;
+    z-index: 0;
+}
