@@ -39,14 +39,14 @@
             <div class="about-text">
                 <div id="about-x">X</div>
                 <p>Voiced by <span>Hatsune Miku</span></p>
-                <p>Created by <span>Ting  <a href="https://www.facebook.com/profile.php?id=100000133118763">( Facebook )</a></span></p>
+                <p>Created by <span>Ting  </span>( <span><a href="https://www.facebook.com/profile.php?id=100000133118763">Facebook</a></span> )</p>
                 <p>Inspired by <a href="">Patatap</a>, Mimic from <a href="https://aidn.jp/mikutap/">Mikutap</a></p>
                 <p>( Wonderful website! )</p>
             </div>
         </div>
     </div>
 
-    <div class="game-table x">
+    <div class="game-table x" id="game-table">
         <audio id="game-background-music" src="../tag-game mp3/bc.mp3"  loop></audio>
         <div class="box" id="box1">  <audio controls src="../tag-game mp3/1.mp3" id="1"  ></audio></div>
         <div class="box" id="box2">  <audio controls src="../tag-game mp3/2.mp3" id="2"  ></audio></div>
@@ -103,6 +103,7 @@
                         // start btn
     document.getElementById('btn-start').addEventListener('mousedown', function(){
          document.getElementById('start').classList.add('x');
+         document.getElementById('game-table').classList.remove('x');
     });
                         // start btn
                         // about btn
@@ -111,9 +112,14 @@
          document.getElementById('start').classList.add('x');
     });
                         // about btn
+                        // back to start btn
+    document.getElementById('about-x').addEventListener('mousedown', function(){
+         document.getElementById('about').classList.add('x');
+         document.getElementById('start').classList.remove('x');
+    });
+                        // back to start btn
+    
                         
-    
-    
     </script>
 </body>
 </html>
