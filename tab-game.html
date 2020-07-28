@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="btn.css">
     <link rel="stylesheet" href="game.css">
+    <style>
+        .x{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="btn-back">＜</div>
@@ -76,6 +81,25 @@
         <div class="box" id="box31"><audio controls src="../tag-game mp3/31.mp3" id="31" ></audio></div>
         <div class="box" id="box32"><audio controls src="../tag-game mp3/32.mp3" id="32" ></audio></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+                        // full-screen btn
+    document.getElementById('btn-full-screen').onmousedown = function () { 
+            if (document.fullscreenElement) { 
+                document.exitFullscreen()
+            } else { 
+                document.documentElement.requestFullscreen() 
+            } 
+     };                 // full-screen btn
+                        
+                        //  back btn
+    document.getElementById('btn-back').addEventListener('mousedown', function(){
+         document.getElementById('game-background-music').pause();
+    });
+                        //  back btn
     
+    
+    
+    </script>
 </body>
 </html>
