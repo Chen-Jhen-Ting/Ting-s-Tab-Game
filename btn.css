@@ -1,0 +1,12 @@
+#btn-back{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 5;
+}
+#btn-full-screen{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 5;
+}
