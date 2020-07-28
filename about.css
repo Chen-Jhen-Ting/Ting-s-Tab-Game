@@ -1,0 +1,35 @@
+.about{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(196,230,230);
+    position: absolute;
+    top: 0px; 
+    display: flex;
+}
+.about-background{
+    width: 50%;
+    margin: auto;  
+    text-align: center;
+    width: 640px;
+    height: 350px;
+    background-color: rgb(136,204,205);
+}
+.about-text{
+    text-align: center;
+    color: white;
+}
+#about-x{
+    padding: 45px 0px 45px 0px;
+    font-size: 20px;
+}
+.about-text p{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.about-text p span{
+    border-bottom: 1px dashed white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
