@@ -184,7 +184,18 @@
             }
         });  
                             // mouseover under mouse pressed
-                              
+
+                            // game-view background color change
+        document.addEventListener('mousedown',function(event){
+            if (activeTime % timeToChange == 0){
+                var r = Math.floor( ( Math.random()*100 ) % 256 );
+                var g = Math.floor( ( Math.random()*100 ) % 256 );
+                var b = Math.floor( ( Math.random()*100 ) % 256 );
+                console.log('rgb('+r+','+g+','+b+')')
+                document.getElementById('game-table').style.backgroundColor = 'rgb(' + r + ', ' + g + ', ' + b + ')'
+            }               
+        })
+                            // game-view background color change
 
     </script>
 </body>
