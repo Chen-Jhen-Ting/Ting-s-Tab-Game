@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="about x">
+    <div class="x" id="about">
         <div class="about-background">
             <div class="about-text">
                 <div id="about-x">X</div>
@@ -90,18 +90,27 @@
             } else { 
                 document.documentElement.requestFullscreen() 
             } 
-     };                 // full-screen btn
+     };                 
+                        // full-screen btn
                         
                         //  back btn
     document.getElementById('btn-back').addEventListener('mousedown', function(){
          document.getElementById('game-background-music').pause();
          document.getElementById('start').classList.remove('x');
-    });
+    });                 
                         //  back btn
+                        
+                        // start btn
     document.getElementById('btn-start').addEventListener('mousedown', function(){
          document.getElementById('start').classList.add('x');
     });
-
+                        // start btn
+                        // about btn
+    document.getElementById('btn-about').addEventListener('mousedown', function(){
+         document.getElementById('about').classList.remove('x');
+         document.getElementById('start').classList.add('x');
+    });
+                        // about btn
                         
     
     
