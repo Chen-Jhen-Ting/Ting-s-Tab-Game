@@ -137,6 +137,7 @@
         });
                         // back to start btn 
         document.addEventListener('mousedown',function(event){
+            event.preventDefault
             var number =  Math.floor(event.pageX/ box_x + 1 ) + Math.floor(event.pageY / box_y)*8;
             console.log(String(number));
             document.getElementById(String(number)).play();
