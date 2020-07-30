@@ -253,28 +253,32 @@
                             // do not thing time counter
         
                             // BGM control
-        backtrack_btn.addEventListener('mousedown', function(event){
-            event.stopPropagation()
-            if ( bgm.play() ){
-                bgm.pause()
-                backtrack_sign.textContent = "OFF"
-            }else{
-                bgm.play()
-                backtrack_sign.textContent = "ON"
-            }
-        });
+        
+        // var x = 0
         // backtrack_btn.addEventListener('mousedown', function(event){
         //     event.stopPropagation()
-        //     if ( bgm_played ){
+        //     if ( !bgm.paused ){     
+        //         console.log(x)
         //         bgm.pause()
         //         backtrack_sign.textContent = "OFF"
-        //         bgm_played = false
+        //         x = x + 1
         //     }else{
         //         bgm.play()
         //         backtrack_sign.textContent = "ON"
-        //         bgm_played = true
         //     }
         // });
+        backtrack_btn.addEventListener('mousedown', function(event){
+            event.stopPropagation()
+            if ( bgm_played ){
+                bgm.pause()
+                backtrack_sign.textContent = "OFF"
+                bgm_played = false
+            }else{
+                bgm.play()
+                backtrack_sign.textContent = "ON"
+                bgm_played = true
+            }
+        });
                             // BGM control
 
                             // press effect control
