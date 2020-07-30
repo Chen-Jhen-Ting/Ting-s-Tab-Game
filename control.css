@@ -1,0 +1,27 @@
+#control-table{
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    text-align: center;
+    margin: auto;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 10;
+}
+#control-table div p {
+    display: inline-block;
+    margin: 15px 0px 15px 0px;
+    color: white;
+    font-size: 20px;
+}
+.control-btn{
+    border-bottom: dashed;
+    cursor: pointer;
+}
+
+.control-btn:hover{
+    animation-name: flash;
+    animation-duration: .2s;
+}

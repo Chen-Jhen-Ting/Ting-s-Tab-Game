@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="start.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="btn.css">
+    <link rel="stylesheet" href="control.css">
     <link rel="stylesheet" href="game.css">
     <style>
         .x{
@@ -45,8 +46,14 @@
             </div>
         </div>
     </div>
-
+    
+    
     <div class="game-table x" id="game-table">
+        <div class="x" id="control-table">
+            <div><p>CLICK & DRAG or PRESS ANY KEY!</p></div>
+            <div><P class="control-btn" id="feedback-btn">FEEDBACK : <span id="feedback-sign">ON</span></P></div>
+            <div><P class="control-btn" id="backtrack-btn">BACKTRACK : <span id="backtrack-sign">ON</span></P></div>
+        </div>
             <audio id="game-background-music" src="/tag-game mp3/bc.mp3" controls loop></audio>
             <div class="box" id="box1">  <audio controls src="/tag-game mp3/1.mp3" id="1"  ></audio></div>
             <div class="box" id="box2">  <audio controls src="/tag-game mp3/2.mp3" id="2"  ></audio></div>
@@ -93,16 +100,25 @@
         var about_btn = document.querySelector('#btn-about')
         var about_view = document.querySelector('#about')
         var about_x = document.querySelector('#about-x')
+        var control_table = document.querySelector('#control-table')
+        var backtrack_btn = document.querySelector('#backtrack-btn')
+        var backtrack_sign= document.querySelector('#backtrack-sign')   
+        var feedback_btn= document.querySelector('#feedback-btn')
+        var feedback_sign= document.querySelector('#feedback-sign')     
         var box_x = (document.body.clientWidth / 8);
         var box_y = (document.body.clientHeight / 4);
         var isDown = false;
         var activeTime = 0;
         var timeToChange = 10;
         var isStart = false
+        var doNotThingTime = 0
+        var press_effect = true
+        var bgm_played = true
                         // var area
 
                         // full-screen btn
         full_screen_btn.onmousedown = function () { 
+            event.stopPropagation()
             if (document.fullscreenElement) { 
                 document.exitFullscreen()
             } else { 
@@ -113,42 +129,54 @@
                         
                         //  back btn
         back_btn.addEventListener('mousedown', function(){
+            event.stopPropagation()
             bgm.pause();
             start_view.classList.remove('x');
+            game_view.classList.add('x');
+            control_table.classList.add('x')
             isStart = false
         });                 
                         //  back btn
                         
                         // start btn
         start_btn.addEventListener('mousedown', function(){
+            event.stopPropagation()
             isStart = true
             start_view.classList.add('x');
             game_view.classList.remove('x');
+            control_table.classList.remove('x')
             bgm.play();
         });
                         // start btn
+
                         // about btn
         about_btn.addEventListener('mousedown', function(){
+            event.stopPropagation()
             about_view.classList.remove('x');
             start_view.classList.add('x');
         });
                         // about btn
-                        // back to start btn
+
+                        // about back to start btn
         about_x.addEventListener('mousedown', function(){ 
+            event.stopPropagation()
             about_view.classList.add('x');
             start_view.classList.remove('x');
         });
-                        // back to start btn 
+                        // about back to start btn 
+
+                        // game mousedown music
         document.addEventListener('mousedown',function(event){
             event.preventDefault
             if (isStart){
                 var number =  Math.floor(event.pageX/ box_x + 1 ) + Math.floor(event.pageY / box_y)*8;
-                console.log(String(number));
                 document.getElementById(String(number)).play();
-                document.getElementById('box'+String(number)).classList.add('box-active'); 
+                if (press_effect){
+                    document.getElementById('box'+String(number)).classList.add('box-active'); 
+                }
             }
         }); 
-                        // back to start btn
+                    // game mousedown music            
 
                     // window resize problem
         window.addEventListener('resize',function(event){
@@ -174,13 +202,17 @@
             document.getElementById('box'+String(number)).classList.remove('box-active');
         });
                     // mouse up remove box-active class
+
                     // mouseover under mouse pressed
         document.addEventListener('mouseover',function(event){
             if (isDown) {
                 activeTime = activeTime + 1;
+                doNotThingTime = 0;
                 var number =  Math.floor(event.pageX/ box_x + 1 ) + Math.floor(event.pageY / box_y)*8;
                 document.getElementById(String(number)).play();
-                document.getElementById('box'+String(number)).classList.add('box-active');
+                if (press_effect){
+                    document.getElementById('box'+String(number)).classList.add('box-active');
+                }
                             // remove class-box-active  from acticed box
                 document.getElementById('box'+String(number+1)).classList.remove('box-active');
                 document.getElementById('box'+String(number-1)).classList.remove('box-active');
@@ -193,15 +225,70 @@
 
                             // game-view background color change
         document.addEventListener('mousedown',function(event){
-            if (activeTime % timeToChange == 0){
+            if ( isDown & activeTime % timeToChange == 0 ){
                 var r = Math.floor( ( Math.random()*100 ) % 256 );
                 var g = Math.floor( ( Math.random()*100 ) % 256 );
                 var b = Math.floor( ( Math.random()*100 ) % 256 );
-                console.log('rgb('+r+','+g+','+b+')')
                 document.getElementById('game-table').style.backgroundColor = 'rgb(' + r + ', ' + g + ', ' + b + ')'
             }               
         })
                             // game-view background color change
+
+                            // do not thing time counter
+        document.addEventListener('mousedown',function(){
+            if (isStart){
+                control_table.classList.add('x')
+            }
+        });
+        function timeCounter(){
+            if (isStart){
+                doNotThingTime = doNotThingTime +1
+                if (doNotThingTime > 2 ){
+                control_table.classList.remove('x');
+                doNotThingTime = 0;
+                }
+            }
+        };
+        setInterval(timeCounter,1000)
+                            // do not thing time counter
+        
+                            // BGM control
+        backtrack_btn.addEventListener('mousedown', function(event){
+            event.stopPropagation()
+            if ( bgm.play() ){
+                bgm.pause()
+                backtrack_sign.textContent = "OFF"
+            }else{
+                bgm.play()
+                backtrack_sign.textContent = "ON"
+            }
+        });
+        // backtrack_btn.addEventListener('mousedown', function(event){
+        //     event.stopPropagation()
+        //     if ( bgm_played ){
+        //         bgm.pause()
+        //         backtrack_sign.textContent = "OFF"
+        //         bgm_played = false
+        //     }else{
+        //         bgm.play()
+        //         backtrack_sign.textContent = "ON"
+        //         bgm_played = true
+        //     }
+        // });
+                            // BGM control
+
+                            // press effect control
+        feedback_btn.addEventListener('mousedown', function(event){
+            event.stopPropagation()
+            if ( press_effect ){
+                press_effect = false
+                feedback_sign.textContent = "OFF"
+            }else{
+                press_effect = true
+                feedback_sign.textContent = "ON"
+            }
+        });
+                            // press effect control
     </script>
 </body>
 </html>
