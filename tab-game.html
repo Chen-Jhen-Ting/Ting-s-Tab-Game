@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="btn.css">
     <link rel="stylesheet" href="control.css">
     <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="canvas.css">
     <style>
         .x{
             display: none!important;
@@ -47,47 +48,50 @@
         </div>
     </div>
     
-    
     <div class="game-table x" id="game-table">
         <div class="x" id="control-table">
             <div><p>CLICK & DRAG or PRESS ANY KEY!</p></div>
             <div><P class="control-btn" id="feedback-btn">FEEDBACK : <span id="feedback-sign">ON</span></P></div>
             <div><P class="control-btn" id="backtrack-btn">BACKTRACK : <span id="backtrack-sign">ON</span></P></div>
         </div>
-            <audio id="game-background-music" src="/tag-game mp3/bc.mp3" controls loop></audio>
-            <div class="box" id="box1">  <audio controls src="/tag-game mp3/1.mp3" id="1"  ></audio></div>
-            <div class="box" id="box2">  <audio controls src="/tag-game mp3/2.mp3" id="2"  ></audio></div>
-            <div class="box" id="box3">  <audio controls src="/tag-game mp3/3.mp3" id="3"  ></audio></div>
-            <div class="box" id="box4">  <audio controls src="/tag-game mp3/4.mp3" id="4"  ></audio></div>
-            <div class="box" id="box5">  <audio controls src="/tag-game mp3/5.mp3" id="5"  ></audio></div>
-            <div class="box" id="box6">  <audio controls src="/tag-game mp3/6.mp3" id="6"  ></audio></div>
-            <div class="box" id="box7">  <audio controls src="/tag-game mp3/7.mp3" id="7"  ></audio></div>
-            <div class="box" id="box8">  <audio controls src="/tag-game mp3/8.mp3" id="8"  ></audio></div>
-            <div class="box" id="box9">  <audio controls src="/tag-game mp3/9.mp3" id="9"  ></audio></div>
-            <div class="box" id="box10"><audio controls src="/tag-game mp3/10.mp3" id="10" ></audio></div>
-            <div class="box" id="box11"><audio controls src="/tag-game mp3/11.mp3" id="11" ></audio></div>
-            <div class="box" id="box12"><audio controls src="/tag-game mp3/12.mp3" id="12" ></audio></div>
-            <div class="box" id="box13"><audio controls src="/tag-game mp3/13.mp3" id="13" ></audio></div>
-            <div class="box" id="box14"><audio controls src="/tag-game mp3/14.mp3" id="14" ></audio></div>
-            <div class="box" id="box15"><audio controls src="/tag-game mp3/15.mp3" id="15" ></audio></div>
-            <div class="box" id="box16"><audio controls src="/tag-game mp3/16.mp3" id="16" ></audio></div>
-            <div class="box" id="box17"><audio controls src="/tag-game mp3/17.mp3" id="17" ></audio></div>
-            <div class="box" id="box18"><audio controls src="/tag-game mp3/18.mp3" id="18" ></audio></div>
-            <div class="box" id="box19"><audio controls src="/tag-game mp3/19.mp3" id="19" ></audio></div>
-            <div class="box" id="box20"><audio controls src="/tag-game mp3/20.mp3" id="20" ></audio></div>
-            <div class="box" id="box21"><audio controls src="/tag-game mp3/21.mp3" id="21" ></audio></div>
-            <div class="box" id="box22"><audio controls src="/tag-game mp3/22.mp3" id="22" ></audio></div>
-            <div class="box" id="box23"><audio controls src="/tag-game mp3/23.mp3" id="23" ></audio></div>
-            <div class="box" id="box24"><audio controls src="/tag-game mp3/24.mp3" id="24" ></audio></div>
-            <div class="box" id="box25"><audio controls src="/tag-game mp3/25.mp3" id="25" ></audio></div>
-            <div class="box" id="box26"><audio controls src="/tag-game mp3/26.mp3" id="26" ></audio></div>
-            <div class="box" id="box27"><audio controls src="/tag-game mp3/27.mp3" id="27" ></audio></div>
-            <div class="box" id="box28"><audio controls src="/tag-game mp3/28.mp3" id="28" ></audio></div>
-            <div class="box" id="box29"><audio controls src="/tag-game mp3/29.mp3" id="29" ></audio></div>
-            <div class="box" id="box30"><audio controls src="/tag-game mp3/30.mp3" id="30" ></audio></div>
-            <div class="box" id="box31"><audio controls src="/tag-game mp3/31.mp3" id="31" ></audio></div>
-            <div class="box" id="box32"><audio controls src="/tag-game mp3/32.mp3" id="32" ></audio></div>
+        <audio id="game-background-music" src="/tag-game mp3/bc.mp3" controls loop></audio>
+        <div class="box" id="box1">  <audio controls src="/tag-game mp3/1.mp3" id="1"  ></audio></div>
+        <div class="box" id="box2">  <audio controls src="/tag-game mp3/2.mp3" id="2"  ></audio></div>
+        <div class="box" id="box3">  <audio controls src="/tag-game mp3/3.mp3" id="3"  ></audio></div>
+        <div class="box" id="box4">  <audio controls src="/tag-game mp3/4.mp3" id="4"  ></audio></div>
+        <div class="box" id="box5">  <audio controls src="/tag-game mp3/5.mp3" id="5"  ></audio></div>
+        <div class="box" id="box6">  <audio controls src="/tag-game mp3/6.mp3" id="6"  ></audio></div>
+        <div class="box" id="box7">  <audio controls src="/tag-game mp3/7.mp3" id="7"  ></audio></div>
+        <div class="box" id="box8">  <audio controls src="/tag-game mp3/8.mp3" id="8"  ></audio></div>
+        <div class="box" id="box9">  <audio controls src="/tag-game mp3/9.mp3" id="9"  ></audio></div>
+        <div class="box" id="box10"><audio controls src="/tag-game mp3/10.mp3" id="10" ></audio></div>
+        <div class="box" id="box11"><audio controls src="/tag-game mp3/11.mp3" id="11" ></audio></div>
+        <div class="box" id="box12"><audio controls src="/tag-game mp3/12.mp3" id="12" ></audio></div>
+        <div class="box" id="box13"><audio controls src="/tag-game mp3/13.mp3" id="13" ></audio></div>
+        <div class="box" id="box14"><audio controls src="/tag-game mp3/14.mp3" id="14" ></audio></div>
+        <div class="box" id="box15"><audio controls src="/tag-game mp3/15.mp3" id="15" ></audio></div>
+        <div class="box" id="box16"><audio controls src="/tag-game mp3/16.mp3" id="16" ></audio></div>
+        <div class="box" id="box17"><audio controls src="/tag-game mp3/17.mp3" id="17" ></audio></div>
+        <div class="box" id="box18"><audio controls src="/tag-game mp3/18.mp3" id="18" ></audio></div>
+        <div class="box" id="box19"><audio controls src="/tag-game mp3/19.mp3" id="19" ></audio></div>
+        <div class="box" id="box20"><audio controls src="/tag-game mp3/20.mp3" id="20" ></audio></div>
+        <div class="box" id="box21"><audio controls src="/tag-game mp3/21.mp3" id="21" ></audio></div>
+        <div class="box" id="box22"><audio controls src="/tag-game mp3/22.mp3" id="22" ></audio></div>
+        <div class="box" id="box23"><audio controls src="/tag-game mp3/23.mp3" id="23" ></audio></div>
+        <div class="box" id="box24"><audio controls src="/tag-game mp3/24.mp3" id="24" ></audio></div>
+        <div class="box" id="box25"><audio controls src="/tag-game mp3/25.mp3" id="25" ></audio></div>
+        <div class="box" id="box26"><audio controls src="/tag-game mp3/26.mp3" id="26" ></audio></div>
+        <div class="box" id="box27"><audio controls src="/tag-game mp3/27.mp3" id="27" ></audio></div>
+        <div class="box" id="box28"><audio controls src="/tag-game mp3/28.mp3" id="28" ></audio></div>
+        <div class="box" id="box29"><audio controls src="/tag-game mp3/29.mp3" id="29" ></audio></div>
+        <div class="box" id="box30"><audio controls src="/tag-game mp3/30.mp3" id="30" ></audio></div>
+        <div class="box" id="box31"><audio controls src="/tag-game mp3/31.mp3" id="31" ></audio></div>
+        <div class="box" id="box32"><audio controls src="/tag-game mp3/32.mp3" id="32" ></audio></div>
     </div>
+    <canvas id="cvs" width="1440" height="720"></canvas>
+
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
                         // var area
@@ -171,8 +175,10 @@
             if (isStart){
                 var number =  Math.floor(event.pageX/ box_x + 1 ) + Math.floor(event.pageY / box_y)*8;
                 document.getElementById(String(number)).play();
+                cube_animation(2,0.2)
                 if (press_effect){
-                    document.getElementById('box'+String(number)).classList.add('box-active'); 
+                    document.getElementById('box'+String(number)).classList.add('box-active');
+                    
                 }
             }
         }); 
@@ -210,8 +216,10 @@
                 doNotThingTime = 0;
                 var number =  Math.floor(event.pageX/ box_x + 1 ) + Math.floor(event.pageY / box_y)*8;
                 document.getElementById(String(number)).play();
+                // cube_animation(2,0.2)
                 if (press_effect){
                     document.getElementById('box'+String(number)).classList.add('box-active');
+                    
                 }
                             // remove class-box-active  from acticed box
                 document.getElementById('box'+String(number+1)).classList.remove('box-active');
@@ -221,6 +229,7 @@
                             // remove class-box-active  from actived box
             }
         });  
+        
                             // mouseover under mouse pressed
 
                             // game-view background color change
@@ -229,7 +238,7 @@
                 var r = Math.floor( ( Math.random()*100 ) % 256 );
                 var g = Math.floor( ( Math.random()*100 ) % 256 );
                 var b = Math.floor( ( Math.random()*100 ) % 256 );
-                document.getElementById('game-table').style.backgroundColor = 'rgb(' + r + ', ' + g + ', ' + b + ')'
+                document.getElementById('cvs').style.backgroundColor = 'rgb(' + r + ', ' + g + ', ' + b + ')'
             }               
         })
                             // game-view background color change
@@ -293,6 +302,57 @@
             }
         });
                             // press effect control
+        
+                // var area
+        var cvs = document.getElementById('cvs');
+                // var area
+
+                // canvas的width height 隨著視窗縮放更動
+        window.addEventListener('resize',function(e){
+            console.log(1)
+            cvs.setAttribute('width', document.body.clientWidth);
+            cvs.setAttribute('height', document.body.clientHeight);
+        });
+                // canvas的width height 隨著視窗縮放更動   
+
+        function getRandom(x){
+            return Math.floor(Math.random()*x ) + 1;
+        }
+        // 產生亂數正方形動畫
+        // 亂數正方形
+        function draw(){
+            var ctx = cvs.getContext("2d");
+            var cube_num = getRandom(100);
+            ctx.clearRect(0,0,1440,720)
+            for(var i = 0; i <= cube_num; i++){
+                var r = getRandom(255)
+                var g = getRandom(255)
+                var b = getRandom(255)
+                var x_axis = getRandom(1440)
+                var y_axis = getRandom(720)
+                ctx.fillStyle = 'rgb('+r+','+g+','+b+')';
+                ctx.fillRect (x_axis, y_axis, 50, 50); 
+            }    
+        }
+        // 亂數正方形
+
+        // 清理螢幕
+        function clear(){
+            var ctx = cvs.getContext("2d");
+            ctx.clearRect(0,0,1440,720);
+        }
+        // 清理螢幕
+        
+        // 產生亂數正方形動畫 
+        function cube_animation(totalTime,timeToChange){
+            for (i = 1; i < (totalTime/timeToChange); i++ ){
+                setTimeout(draw,timeToChange*1000*i)
+            }    
+            setTimeout(clear,(totalTime*1000+100))
+        }
+
+        // 產生亂數正方形動畫 
+        
     </script>
 </body>
 </html>
