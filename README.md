@@ -1,4 +1,4 @@
-# Ting-s-Tab-Game-by-HTML5
+# Ting-s-Tab-Game-by-HTML5 ( https://chen-jhen-ting.github.io/ )
 
 這個遊戲是模仿 Mikutab (https://aidn.jp/mikutap/)
 
