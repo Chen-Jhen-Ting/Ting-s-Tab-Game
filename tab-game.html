@@ -17,8 +17,8 @@
     </style>
 </head>
 <body>
-    <div id="btn-back">＜</div>
-    <div id="btn-full-screen">口</div>
+    <div id="btn-back"> back to start </div>
+    <div id="btn-full-screen">full-screen</div>
     <div id="start">
         <div class="wrap">
             <h1>Fake Mikutap</h1>
@@ -148,7 +148,7 @@
             isStart = true
             start_view.classList.add('x');
             game_view.classList.remove('x');
-            control_table.classList.remove('x')
+            control_table.classList.remove('x');
             bgm.play();
         });
                         // start btn
@@ -175,6 +175,7 @@
             if (isStart){
                 var number =  Math.floor(event.pageX/ box_x + 1 ) + Math.floor(event.pageY / box_y)*8;
                 document.getElementById(String(number)).play();
+                // console.log(String(number))
                 cube_animation(2,0.2)
                 if (press_effect){
                     document.getElementById('box'+String(number)).classList.add('box-active');
@@ -307,7 +308,7 @@
         var cvs = document.getElementById('cvs');
                 // var area
 
-                // canvas的width height 隨著視窗縮放更動
+                // canvas auto-resize
         window.addEventListener('resize',function(e){
             console.log(1)
             cvs.setAttribute('width', document.body.clientWidth);
@@ -315,35 +316,37 @@
         });
                 // canvas的width height 隨著視窗縮放更動   
 
-        function getRandom(x){
-            return Math.floor(Math.random()*x ) + 1;
+        function getRandom(min,max){
+            return Math.floor(Math.random()*max ) + min;
         }
-        // 產生亂數正方形動畫
-        // 亂數正方形
+        // cube animation
+        // draw random cube
         function draw(){
             var ctx = cvs.getContext("2d");
-            var cube_num = getRandom(100);
+            var cube_num = getRandom(10,50);
+            console.log(cube_num)
             ctx.clearRect(0,0,1440,720)
             for(var i = 0; i <= cube_num; i++){
-                var r = getRandom(255)
-                var g = getRandom(255)
-                var b = getRandom(255)
-                var x_axis = getRandom(1440)
-                var y_axis = getRandom(720)
+                var r = getRandom(0,255)
+                var g = getRandom(0,255)
+                var b = getRandom(0,255)
+                var x_axis = getRandom(0,1440)
+                var y_axis = getRandom(0,720)
+                var cube_size = getRandom(10,150)
                 ctx.fillStyle = 'rgb('+r+','+g+','+b+')';
-                ctx.fillRect (x_axis, y_axis, 50, 50); 
+                ctx.fillRect (x_axis, y_axis, cube_size, cube_size); 
             }    
         }
-        // 亂數正方形
+        // draw random cube
 
-        // 清理螢幕
+        // clean screen
         function clear(){
             var ctx = cvs.getContext("2d");
             ctx.clearRect(0,0,1440,720);
         }
-        // 清理螢幕
+        // clean screen
         
-        // 產生亂數正方形動畫 
+        // cube animation control
         function cube_animation(totalTime,timeToChange){
             for (i = 1; i < (totalTime/timeToChange); i++ ){
                 setTimeout(draw,timeToChange*1000*i)
@@ -351,7 +354,7 @@
             setTimeout(clear,(totalTime*1000+100))
         }
 
-        // 產生亂數正方形動畫 
+        // cube animation 
         
     </script>
 </body>
