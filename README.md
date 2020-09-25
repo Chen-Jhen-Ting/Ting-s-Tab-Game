@@ -1,8 +1,8 @@
 # Ting-s-Tab-Game-by-HTML5 
-[遊戲連結]( https://chen-jhen-ting.github.io/Ting-s-Tab-Game-by-HTML5/tab-game )
-
+[Game Link]( https://chen-jhen-ting.github.io/Ting-s-Tab-Game-by-HTML5/tab-game )
 
 This game is a music web game.
+
 User can click squire to trigger music and background animation.
 
 這個遊戲是模仿 Mikutab (https://aidn.jp/mikutap/)
