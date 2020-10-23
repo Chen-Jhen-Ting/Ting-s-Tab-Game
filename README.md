@@ -1,5 +1,5 @@
 # Ting-s-Tab-Game-by-HTML5 
-[Game Link]( https://chen-jhen-ting.github.io/Ting-s-Tab-Game-by-HTML5/tab-game )
+[Game Link]( https://chen-jhen-ting.github.io/ )
 
 This game is a music web game.
 
